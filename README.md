@@ -23,6 +23,8 @@ consistente.
 
 ## Arquitectura
 
+![Arquitectura de DesignAssistBot](docs/img/arquitectura.svg)
+
 ```
 Brief de marca (lo completa el cliente: tono, jerga, ejemplos reales)
       │
