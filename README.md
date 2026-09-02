@@ -27,10 +27,6 @@ consistente.
 
 ![Arquitectura de DesignAssistBot](docs/img/arquitectura.svg)
 
-**Panel — recreación con datos de ejemplo / panel recreation with example data:**
-
-![Panel](docs/img/panel.png)
-
 ```
 Brief de marca (lo completa el cliente: tono, jerga, ejemplos reales)
       │
