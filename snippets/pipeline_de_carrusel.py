@@ -1,9 +1,17 @@
+# Español primero · English below
 # Origen: app/carrusel_generator.py del sistema en produccion (fragmento:
 # _parse_json_response y _build_piece; se recorto la generacion de imagenes).
 # Ilustra: el modelo devuelve JSON con los slides, que hay que parsear a la
 # defensiva (el LLM a veces manda texto de mas alrededor del JSON) y recien
 # ahi construir la Piece. El copy lo escribe el modelo; la estructura la
 # valida el codigo.
+#
+# --- English ---
+# Source: app/carrusel_generator.py from the production system (fragment:
+# _parse_json_response and _build_piece; image generation was trimmed).
+# Shows: the model returns JSON with the slides, which has to be parsed defensively
+# (the LLM sometimes wraps the JSON in extra text) before building the Piece. The
+# model writes the copy; the code validates the structure.
 
 def _sanitize_json_string(s: str) -> str:
     """

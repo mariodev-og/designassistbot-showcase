@@ -1,8 +1,16 @@
+# Español primero · English below
 # Origen: app/llm.py del sistema en produccion (fragmento: TASK_TIERS,
 # get_model y _estimate_cost).
 # Ilustra: el tier de cada tarea (fast/smart) se declara en un solo lugar y
 # cada llamada estima su costo por tokens. Es la base del presupuesto y del
 # kill-switch de gasto — el mismo patron que en los otros sistemas.
+#
+# --- English ---
+# Source: app/llm.py from the production system (fragment: TASK_TIERS, get_model
+# and _estimate_cost).
+# Shows: each task's tier (fast/smart) is declared in one place and every call
+# estimates its token cost. It's the basis of the budget and the spend kill-switch
+# — the same pattern as in the other systems.
 
 TASK_TIERS: dict[str, str] = {
     # fast: output corto, estructura predecible, latencia importa

@@ -1,8 +1,16 @@
+# Español primero · English below
 # Origen: app/brand_config.py del sistema en produccion (fragmento: la
 # dataclass BrandConfig y su carga; se recorto el armado de descripciones).
 # Ilustra: cada cuenta tiene su identidad (paleta, logo, tono, jerga) como
 # dato estructurado. El generador lee de aca, no de valores hardcodeados,
 # y por eso agregar una marca nueva es cargar config, no tocar codigo.
+#
+# --- English ---
+# Source: app/brand_config.py from the production system (fragment: the BrandConfig
+# dataclass and its loading; the description builder was trimmed).
+# Shows: each account has its identity (palette, logo, tone, slang) as structured
+# data. The generator reads from here, not from hardcoded values, so adding a new
+# brand means loading config, not touching code.
 
 @dataclass
 class BrandConfig:
