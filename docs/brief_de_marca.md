@@ -1,3 +1,9 @@
+**🇦🇷 Español · 🇬🇧 English note below**
+
+> **EN —** This is the real brand-brief questionnaire the client fills in before any content is generated: tone, slang, forbidden words and real caption examples. It's kept in Spanish because that's how it was used in production with the client. It's included as a product artifact — it's what makes the generated copy sound like the brand instead of generic AI.
+
+---
+
 # Brief de marca para el asistente de contenido
 
 Hola. Para que el asistente genere carruseles que suenen **realmente a tu marca**

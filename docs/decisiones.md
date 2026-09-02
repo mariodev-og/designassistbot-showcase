@@ -1,3 +1,5 @@
+**🇦🇷 Español · 🇬🇧 [English](#-english)**
+
 # Decisiones de diseño
 
 ## 1. El brief de marca lo completa el cliente antes de generar nada
@@ -26,3 +28,34 @@
 
 - **Qué se hizo:** toda pieza pasa por aprobación del cliente antes de publicarse.
 - **Por qué:** la voz de la marca es del cliente; la última palabra también.
+
+---
+
+<a name="english"></a>
+# 🇬🇧 English — Design decisions
+
+## 1. The brand brief is filled in by the client before generating anything
+
+- **What:** a structured questionnaire the client fills in once — tone, slang,
+  forbidden words, real examples of their own captions.
+- **Rejected alternative:** have the model infer the brand voice from the
+  Instagram feed.
+- **Why:** without a brief, the output sounds like generic AI and the client
+  won't publish it. The brief is what makes the copy sound like the brand.
+- **Cost:** onboarding friction. You have to chase the client to complete it,
+  and until they do the system doesn't generate well.
+
+## 2. Visual identity is applied with Pillow, not asked of the model
+
+- **What:** the image generator produces the base; logo, palette and typography
+  are overlaid by code with Pillow.
+- **Rejected alternative:** ask the model to include the logo in the image.
+- **Why:** image models don't reproduce a logo consistently — they warp it,
+  change its color or reinvent it. A wrong logo is worse than no logo.
+- **Cost:** less compositional freedom. The overlay uses fixed positions and
+  doesn't adapt to each image.
+
+## 3. Nothing publishes on its own
+
+- **What:** every piece goes through client approval before publishing.
+- **Why:** the brand voice is the client's; so is the last word.

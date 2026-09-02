@@ -1,3 +1,5 @@
+**🇦🇷 Español · 🇬🇧 [English](#-english)**
+
 # DesignAssistBot
 
 > Asistente que genera carruseles, historias y posts de Instagram con la voz de cada marca, no con la voz genérica de una IA.
@@ -108,3 +110,97 @@ Puedo dar acceso de lectura durante un proceso de selección: escribime a
 ## Licencia
 
 Todos los derechos reservados. Ver [`LICENSE`](LICENSE).
+
+---
+
+<a name="english"></a>
+# 🇬🇧 English
+
+# DesignAssistBot
+
+> Assistant that generates Instagram carousels, stories and posts in each brand's own voice, not an AI's generic voice.
+
+**This repository is a technical showcase, not the system.** The production
+system is private. Here you'll find the architecture, the design decisions and a
+few code snippets chosen to show how it's built.
+
+## The problem
+
+A community manager needs to publish often and with a consistent voice. AI tools
+generate correct but flat text: it sounds like AI, not like the brand, and the
+client won't publish it. And the image they return respects neither the logo nor
+the account's palette.
+
+DesignAssistBot builds the whole piece from a brand brief the client fills in:
+the model writes the copy conditioned by that brief, the image is generated, and
+the visual identity (logo, palette, typography) is applied on top by code — not
+asked of the model, because it doesn't reproduce a logo consistently.
+
+## Architecture
+
+![DesignAssistBot architecture](docs/img/arquitectura.svg)
+
+Full detail in [`docs/arquitectura.md`](docs/arquitectura.md).
+
+## Stack
+
+| Layer | Technology | Why this and not another |
+|---|---|---|
+| Backend | Python · FastAPI | Async for the generation queue |
+| Database | PostgreSQL on Supabase | Per-account config + image Storage |
+| Interface | Jinja2 · Tailwind · Chart.js | 20-view panel with Instagram metrics |
+| Text | Claude | Copy in the brand's voice, per-task routing |
+| Image | Gemini + Pillow | The model generates; Pillow applies the identity |
+| Deployment | Render | — |
+
+## Design decisions
+
+Full detail in [`docs/decisiones.md`](docs/decisiones.md).
+
+### The brand brief is filled in by the client before generating anything
+
+- **What:** a structured questionnaire (tone, slang, forbidden words, real examples of the client's own captions). See [`docs/brief_de_marca.md`](docs/brief_de_marca.md).
+- **Rejected alternative:** have the model infer the brand voice from the feed.
+- **Why:** without a brief, the output sounds like generic AI and the client won't publish it.
+- **Cost:** onboarding friction — you have to chase the client to fill it in.
+
+### Visual identity is applied with Pillow, not asked of the model
+
+- **What:** logo, palette and typography are overlaid by code on the generated image.
+- **Rejected alternative:** ask the image generator to include the logo.
+- **Why:** the model doesn't reproduce a logo consistently — it warps or reinvents it.
+- **Cost:** less compositional freedom; the overlay is more rigid.
+
+## Decisions about this repository
+
+- **It's a showcase, not a mirror.** The production system holds client material: brand names, Instagram accounts, real captions. Not publishable whole.
+- **What's published is what reads.** Three chosen fragments, one per decision, plus the blank brand brief as a product artifact.
+- **This project has no test suite.** Said here instead of improvising one for the showcase. Quality rests on the pipeline documentation.
+- **Client names are replaced** with fictional ones, not obfuscated.
+
+## What's in this repository
+
+| Folder | Contents |
+|---|---|
+| [`docs/`](docs/) | Architecture, decisions, the brand brief and screenshots |
+| [`snippets/`](snippets/) | Three commented fragments, one per decision |
+
+The `snippets/` fragments don't form a runnable program: they're meant to be read.
+
+## Project scale
+
+Purpose-built 20-view panel with weekly Instagram metrics analysis. Delivered to
+a client between May and June 2026.
+
+## Status
+
+Delivered. Production repository private.
+
+## Full code
+
+The production repository is private because it contains client material. I can
+grant read access during a hiring process: write me at **mario1804.dev@gmail.com**.
+
+## License
+
+All rights reserved. See [`LICENSE`](LICENSE).
